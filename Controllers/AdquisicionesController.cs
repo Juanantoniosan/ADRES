@@ -62,12 +62,11 @@ namespace PruebaAdres.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AdquisicionId,Presupuesto,UnidadId,TipoBienoServicioId,Cantidad,ValorUnitario,ValorTotal,FechaAdquisicion,ProveedorId,Documentacion")] Adquisicione adquisicione)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(adquisicione);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+
+            _context.Add(adquisicione);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
             ViewData["ProveedorId"] = new SelectList(_context.Proveedors, "ProveedorId", "NombreEntidad", adquisicione.ProveedorId);
             ViewData["TipoBienoServicioId"] = new SelectList(_context.TipoBienoServicios, "TipoBienoServicioId", "Descripcion", adquisicione.TipoBienoServicioId);
             ViewData["UnidadId"] = new SelectList(_context.Unidads, "UnidadId", "NombreUnidad", adquisicione.UnidadId);
