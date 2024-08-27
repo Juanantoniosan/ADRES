@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PruebaAdres.Modelo.Adquisicione>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Adquisiciones</h1>
+
+<p>
+    <a asp-action="Create">Crear Nueva Adquisición</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Presupuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                Valor Unitario
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th>
+                Fecha Adquisicion
+            </th>
+            <th>
+                Documentación
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th>
+                Tipo de Bien o Servicio
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presupuesto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAdquisicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Documentacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedor.ProveedorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoBienoServicio.TipoBienoServicioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidad.UnidadId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AdquisicionId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.AdquisicionId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.AdquisicionId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

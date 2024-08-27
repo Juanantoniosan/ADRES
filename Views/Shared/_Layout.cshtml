@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Prueba Adres</title>
+    <link href="https://cdn.www.gov.co/layout/v4/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PruebaAdres.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg barra-superior-govco" aria-label="Barra superior">
+            <a href="https://www.gov.co/" target="_blank" aria-label="Portal del Estado Colombiano - GOV.CO"></a>
+        </nav>
+        <div class="container-navbar-menu-govco blue-menu-govco">
+            <nav class="navbar navbar-expand-lg navbar-menu-govco" role="navigation" aria-label="Menú ejemplo entidad">
+                <div class="container-fluid container-second-navbar-menu-govco">
+                    <a class="navbar-brand navbar-toggler icon-entidad-menu-govco" href="#"></a>
+                    <button class="navbar-toggler button-responsive-menu-govco collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bars-menu-govco"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-collapse-menu-govco" id="navbarScroll">
+                        <ul class="navbar-nav navbar-nav-menu-govco ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link dir-menu-govco" aria-current="page" href="#">
+                                    <span class="text-item-menu-govco">
+                                        <img src="~/image/logo.png" width="200px" style="margin-right:50px; padding-right:50px" />
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dir-menu-govco active" aria-current="page" href="#">
+                                    <span class="text-item-menu-govco">
+                                        Inicio
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dir-menu-govco" aria-current="page" href="~/Adquisiciones">
+                                    <span class="text-item-menu-govco">
+                                        Adquisiciones
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="container-text-icon-menu-govco">
+                                        <span class="text-item-menu-govco">Administración</span>
+                                        <span class="icon-caret-menu-govco"></span>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item dir-menu-govco" href="~/Proveedores">Proveedores</a></li>
+                                    <li><a class="dropdown-item dir-menu-govco" href="~/TiposBienServicio">Tipos de Bienes o Servicios</a></li>
+                                    <li><a class="dropdown-item dir-menu-govco" href="~/Unidades">Unidades Administrativas</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dir-menu-govco" aria-current="page" href="/Home/Privacy">
+                                    <span class="text-item-menu-govco">
+                                        Politica de Privacidad
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dir-menu-govco" aria-current="page" href="/Home/Ayuda">
+                                    <span class="text-item-menu-govco">
+                                        Ayuda
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content-example-barra ">
+        <div class="barra-accesibilidad-govco">
+            <button id="botoncontraste" class="icon-contraste" onclick="cambiarContexto()">
+                <span id="titlecontraste">Contraste</span>
+            </button>
+            <button id="botondisminuir" class="icon-reducir" onclick="disminuirTamanio('disminuir')">
+                <span id="titledisminuir">Reducir letra</span>
+            </button>
+            <button id="botonaumentar" class="icon-aumentar" onclick="aumentarTamanio('aumentar')">
+                <span id="titleaumentar">Aumentar letra</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="container">
+        <div id="para-mirar" class="barra-accesibilidad-letra">
+            @RenderBody()
+        </div>
+    </main>
+
+
+
+
+    <footer class="d-none d-md-block">
+        <div class="row govco-portales-contenedor m-0">
+            <div class="col-4 govco-footer-logo-portal">
+                <div class="govco-logo-container-portal">
+                    <span class="govco-logo"></span>
+                    <span class="govco-separator"></span>
+                    <span class="govco-co"></span>
+                </div>
+            </div>
+            <div class="col-4 govco-info-datos-portal">
+                <div class="govco-separator-rows"></div>
+                <div class="govco-texto-datos-portal">
+                    <p class="govco-text-header-portal-1">
+                        Adquisiciones ADRES
+                    </p>
+                    <p>
+                        Dirección: <br class="govco-mostrar">
+                        xxxxxx xxx xxx <br class="govco-mostrar">
+                        Lunes a viernes xx:xx a.m. - xx:xx p.m.
+                    </p>
+
+                    <div class="govco-iconContainer">
+                        <span class="icon-portal govco-twitter-square"></span>
+                        <span class="govco-link-portal"> <a href="https://x.com/AdresCol?ref_src=twsrc%5Etfw">Address X</a></span>
+                    </div>
+                    <div class="govco-iconContainer">
+                        <span class="icon-portal govco-facebook-square"></span>
+                        <span class="govco-link-portal"><a href="www.facebook.com/adrescol">Address Facebook</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 govco-info-telefonos">
+                <div class="govco-separator-rows"></div>
+                <div class="govco-texto-telefonos">
+                    <p class="govco-text-header-portal-1">
+                        <span class="govco-phone-alt"></span>
+                        Contacto
+                    </p>
+                    <p>
+                        Teléfono <br class="govco-mostrar"> conmutador: <br class="govco-mostrar-inv">
+                        +57(xx) xxx xx xx <br>
+                        Correo institucional: <br>
+                        entidad@entidad.gov.co
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.www.gov.co/layout/v4/script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

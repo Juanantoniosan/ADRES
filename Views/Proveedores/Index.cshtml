@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PruebaAdres.Modelo.Proveedor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Proveedores</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Proveedor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre del proveedor
+            </th>
+            <th>
+                Tipo de Documento
+            </th>
+            <th>
+                Numero de DOcumento
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEntidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProveedorId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProveedorId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProveedorId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
